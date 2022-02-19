@@ -1,0 +1,164 @@
+body {
+	font-family: sans-serif;
+	font-size: 30px;
+	margin: 0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 0 5px 0 #0008;
+}
+
+.logo-img {
+	height: 70px;
+	margin: 15px 15px 0px 15px;
+}
+
+.logo-text {
+	font-size: 25px;
+	padding: 15px;
+}
+
+.container {
+	/* display: flex; */
+	padding-left: calc((100% - 980px)/2);
+	padding-right: calc((100% - 980px)/2);
+}
+
+section {
+	display: grid;
+	grid-template-columns: 300px 300px 300px;
+	justify-content: center;
+	grid-gap: 40px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: rgb(247, 118, 44, 0.3);
+}
+
+.card {
+	width: 300px;
+	box-sizing: border-box;
+	box-shadow: 0 0 5px 0 #0008;
+	border-radius: 15px;
+	padding: 30px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.card h3 {
+	font-size: 25px;
+	color: rgb(247, 118, 44);
+	text-align: center;
+}
+
+.card-img {
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+	opacity: 0.8;
+	box-shadow: 0 0 5px 0 #0008;
+}
+
+.rate {
+	display: flex;
+	justify-content: space-between;
+}
+
+.rate img {
+	height: 12px;
+}
+
+.favourite {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.favourite img {
+	height: 20px;
+	margin-top: 20px;
+}
+
+.card:hover {
+	transform: scale(1.15, 1.15);
+	transition: 0.2s linear;
+	box-shadow: 0 0 5px 0 #0008, 0 0 15px 0 #0009;
+}
+
+.card:hover .card-img {
+	opacity: 1;
+	transition: 0.5s linear;
+}
+
+.infoCard {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #0009;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+.infoCard.active {
+	display: flex;
+}
+
+.info-wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 300px);
+	gap: 0 50px;
+	background-color: #fff;
+	padding: 30px;
+	border: 1px solid;
+	border-radius: 10px;
+	position: relative;
+	max-width: 1000px;
+}
+
+.infoCard-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	background-image: url(img/Closed.png);
+	background-position: center 0;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 50px;
+}
+
+.infoCard-img {
+	width: 100%;
+	border-radius: 15px;
+	box-shadow: 0 0 5px 0 #0008;
+}
+
+.info h2 {
+	font-size: 30px;
+	color: rgb(247, 118, 44);
+	margin-bottom: 30px;
+}
+
+.info h3 {
+	font-size: 25px;
+	margin-bottom: 30px;
+}
+
+.info p {
+	font-size: 20px;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+   align-items: center;
+   box-shadow: 0 0 5px 0 #0008;
+	font-size: 20px;
+	padding: 30px;
+}
