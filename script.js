@@ -1,88 +1,6 @@
-const cats = [
-	{
-		 "name": "Лара",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2021-09/167200DD-A44F-4845-8D4D-ACCFC180165A.jpeg",
-		 "age": 8,
-		 "rate": 7,
-		 "favourite": false,
-		 "description": "Лара – шотландская вислоухая, у нее остеохондродисплазия. Лара спокойная, очень ласковая и контактная. Болезнь не лечится и специального ухода не нужно.",
-		 "id": 1
-	},
-	{
-		 "name": "Базиль",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/064AEBCB-45EC-4CE7-AB13-C65F10F00B7B.jpeg",
-		 "age": 2,
-		 "rate": 10,
-		 "favourite": false,
-		 "description": "Внимательный, активный и ласковый. Любит играть, катать мяч, и мурчать на пледе рядом с людьми! Прилично воспитан, приучен к лотку. Вакцинирован, имеет ветеринарный паспорт.",
-		 "id": 2
-	},
-	{
-		 "name": "Риш",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/_DM34706.JPG",
-		 "age": 1,
-		 "rate": 10,
-		 "favourite": true,
-		 "description": "Риш любит лесенки, канаты. Очень активный и дружелюбный кот. Риш полностью здоров, привит, кастрирован. Использует лоточек и очень аккуратен.",
-		 "id": 3
-	},
-	{
-		 "name": "Элли",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/1_25.jpg",
-		 "age": 4,
-		 "rate": 8,
-		 "favourite": false,
-		 "description": "Элли обладает мягким и добрым характером. Очень любит всевозможные лакомства и вкусно покушать. Не доверяет людям, потребуется время, чтобы стать ей другом. Приучена к лотку и когтеточке",
-		 "id": 4
-	},
-	{
-		 "name": "Чарли",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/%D0%BB%D0%B5%D0%B2%D0%B83_%D0%B0%D0%BB%D0%B5%D0%BA%D1%81.jpg",
-		 "age": 1,
-		 "rate": 8,
-		 "favourite": false,
-		 "description": "Чёрно-белый юный котофилософ очень любит размышлять и быть наедине. Пока что не доверяет людям, не агрессивный. Ладит с другими животными, приучен к лотку и когтеточке",
-		 "id": 5
-	},
-	{
-		 "name": "Стефани",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/4_30.jpg",
-		 "age": 6,
-		 "rate": 9,
-		 "favourite": false,
-		 "description": "Прелестная Стефани – трогательная, добродушная и очень-очень общительная девочка как никто другой нуждается в заботе и любви. Приучена к лотку и когтеточке",
-		 "id": 6
-	},
-	{
-		 "name": "Дуся",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-02/B1444207-6EE3-4BA4-97F7-2F9666AE2F63.jpeg",
-		 "age": 1,
-		 "rate": 9,
-		 "favourite": false,
-		 "description": "Дусеньке около 1 года с небольшим, здорова, привита, стерилизована. Лоточек и когтеточку знает прекрасно. Очень общительная и нежная, хочет постоянного внимания.",
-		 "id": 7
-	},
-	{
-		 "name": "Бруно",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/IMG-20211223-WA0049.jpg",
-		 "age": 1,
-		 "rate": 10,
-		 "favourite": false,
-		 "description": "Очаровательный активный кот Бруно, находится в постоянном движении! Очаровательный и ласковый кот. Приучен к лотку, ладит с другими котами, привит.",
-		 "id": 8
-	},
-	{
-		 "name": "Лара",
-		 "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D1%8F%D1%87%D0%BE%D0%BA4_%D0%B0%D0%BB%D0%B5%D0%BA%D1%81.jpg",
-		 "age": 1,
-		 "rate": 9,
-		 "favourite": true,
-		 "description": "Немного боязливый, но очень добрый и нежный кот Светлячок. Приучен к лотку и когтеточке, ладит с детьми, привит. Станет вам хорошим другом",
-		 "id": 9
-	}
-]
-
 const section = document.querySelector("section");
+let currentCat ={};
+
 let infoCard = document.createElement("div");
 infoCard.className = "infoCard";
 document.body.appendChild(infoCard);
@@ -90,58 +8,242 @@ let wrapper = document.createElement("div");
 wrapper.className = "info-wrapper";
 infoCard.appendChild(wrapper);
 
+let addCatCard = document.querySelector('.addCatCard');
+let addCatForm = addCatCard.querySelector('.addCat');
+let cancelAddButton = addCatCard.querySelector('.cancel');
+let editCatCard = document.querySelector('.editCatCard');
+let editCatForm = editCatCard.querySelector('.editCat');
+let cancelEditButton = editCatCard.querySelector('.cancel');
 
-const showInfo = function(data) {
+buttonUpdate = document.querySelector(".button__update");
+buttonAddNewCat = document.querySelector(".button__add");
+
+const authForm = document.querySelector(".authorization");
+const authInput = authForm.querySelector(".authorization__input");
+
+
+
+// ф-я записи в локальное хранилище
+
+function setLocalStorage(key, data) {
+	localStorage.setItem(key, JSON.stringify(data));
+}
+
+// ф-я запроса данных из локального хранилища
+
+function getLocalStorage(key) {
+	return JSON.parse(localStorage.getItem(key));
+}
+
+// ф-я проверки наличия куки, т.е. авторизации
+
+function getCookie(name) {
+	let matches = document.cookie.match(new RegExp(
+	  "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	));
+	return matches ? true : false;
+}
+
+// ф-я обновления локального хранилища
+
+function updateData() {
+	if (getCookie('User')) {
+		localStorage.clear();
+		section.innerHTML = "";
+		getCards();
+	} else {
+			alert("Пожалуйста, пройдите авторизацию");
+		}	
+}
+
+// ф-я открытия окна с информацией о котике
+
+function showInfo(data) {
+	currentCat = data;
 	infoCard.classList.add("active");
 	wrapper.innerHTML = `
-        <img class="infoCard-img" src="${data.img_link}" alt="${data.name}">
-        <div class="info">
-            <h2>${data.name}</h2>
-            <h3>Полных лет: ${data.age}</h3>
-            <p>${data.description}</p>
-        </div>
-        <div class="infoCard-close" onclick="closeInfo()"></div>
+		  <img class="infoCard-img" src="${data.img_link}" alt="${data.name}">
+		  <div class="info">
+				<h2>${data.name}</h2>
+				<h3>Полных лет: ${data.age}</h3>
+				<p>${data.description}</p>
+		  </div>
+		  <button type="button" class="button__main infoCard-edit">Редактировать</button>
+		  <button type="button" class="button__main infoCard-delete">Удалить</button>
+		  <button type="button" class="infoCard-close" onclick="closeInfo()"></button>
 		  `;
+	buttonDeleteCat = infoCard.querySelector('.infoCard-delete');
+	buttonDeleteCat.addEventListener('click', deleteCat);
+	
+	buttonEditCat = infoCard.querySelector('.infoCard-edit');
+	buttonEditCat.addEventListener('click', openEditCatCard);
 }
-
-const closeInfo = function () {
-	infoCard.classList.remove("active");
+	
+// ф-я закрытия окна с информацией о котике
+	
+function closeInfo() {
+infoCard.classList.remove("active");
 }
+	
+// ф-я получения данных для создания карточек
 
-for (let i of cats) {
-	let card = document.createElement("div");
-	card.className = "card";
-	card.innerHTML = `
-	<div class="card-img" style="background-image: url(${i["img_link"]})"></div>
-	<h3>${i["name"]}</h3>`;
-	section.append(card);
-	let rate = document.createElement("div");
-	rate.className = "rate";
-	for (let j=1; j<=i["rate"]; j++) {
-		rate.innerHTML += `<img class="rate-img" src="img/cat-fill.svg" alt="Rate">`;
-	}
-	for (let k=i["rate"]+1; k<=10; k++) {
-		rate.innerHTML += `<img class="rate-img" src="img/cat-stroke.svg" alt="Rate">`;
-	}
-	card.append(rate);
-	let heart = document.createElement("div");
-	heart.className = "favourite";
-	if (i["favourite"]) {
-		heart.innerHTML = `<img class="heart-img" src="img/heart-fill.png" alt="favourite">`;
+function getCards() {
+	if(getLocalStorage('Cats')?.length) {
+		createCards(getLocalStorage('Cats'));
 	} else {
-		heart.innerHTML = `<img class="heart-img" src="img/heart-stroke.png" alt="favourite">`;
+			api.getAllCats()
+					.then(dataCats => {
+						if (dataCats.message === "ok") {
+							setLocalStorage('Cats', dataCats.data);
+							createCards(dataCats.data);
+							console.log('Я беру данные с сервера');
+						}
+					})
+					.catch(err => {
+						console.log(err);
+					})
 	}
-	card.append(heart);
-	card.addEventListener("click", function() {
-		showInfo(i);
-  })
+}
+
+// ф-я создания карточек с котиками
+	
+function createCards(data) {
+	for (let i of data) {
+		let card = document.createElement("div");
+		card.className = "card";
+		card.innerHTML = `
+		<div class="card-img" style="background-image: url(${i["img_link"]})"></div>
+		<h3>${i["name"]}</h3>`;
+		section.append(card);
+		let rate = document.createElement("div");
+		rate.className = "rate";
+		for (let j=1; j<=i["rate"]; j++) {
+			rate.innerHTML += `<img class="rate-img" src="img/cat-fill.svg" alt="Rate">`;
+		}
+		for (let k=i["rate"]+1; k<=10; k++) {
+			rate.innerHTML += `<img class="rate-img" src="img/cat-stroke.svg" alt="Rate">`;
+		}
+		card.append(rate);
+		let heart = document.createElement("div");
+		heart.className = "favourite";
+		if (i["favourite"]) {
+			heart.innerHTML = `<img class="heart-img" src="img/heart-fill.png" alt="favourite">`;
+		} else {
+			heart.innerHTML = `<img class="heart-img" src="img/heart-stroke.png" alt="favourite">`;
+		}
+		card.append(heart);
+		card.addEventListener("click", function() {
+			showInfo(i);
+		})
+	}
+}
+
+// ф-я открытия формы для добавления котика
+
+function openAddCatCard() {
+	if (getCookie('User')) {
+		addCatCard.classList.add("active");
+	} else {
+		alert("Пожалуйста, пройдите авторизацию");
+	}
+}
+
+// ф-я открытия формы для изменения котика
+
+function openEditCatCard() {
+		closeInfo();
+		editCatCard.classList.add("active");
+		editCatCard.scrollIntoView();
+		document.getElementById('editCat_name').value = currentCat.name;
+		document.getElementById('editCat_img_link').value = currentCat.img_link;
+		document.getElementById('editCat_rate').value = currentCat.rate;
+		document.getElementById('editCat_age').value = currentCat.age;
+		document.getElementById('editCat_favourite').value = currentCat.favourite;
+		document.getElementById('editCat_description').value = currentCat.description;
+}
+
+// ф-я удаления котика с предварительным уведомлением об удалении
+
+function deleteCat() {
+	const access = confirm('Вы действительно хотите удалить');
+
+    if(access){
+		api.deleteCat(currentCat.id)
+		.then(updateData);
+		closeInfo();
+	 }
 }
 
 
-// const cards = document.querySelectorAll(".card");
 
-// for (let i = 0; i < cards.length; i++) {
-// 	cards[i].addEventListener("click", function(e) {
-// 		 showInfo(cats[i]);
-// 	})
-// }
+// запись куки при авторизации
+
+authForm.addEventListener("submit", (e) => {
+	e.preventDefault();
+	if (authInput.value.trim() !== "") {
+		document.cookie = `User=${authInput.value}; secure; samesite=lax`;
+		authInput.value = "";
+		location.reload();
+	} else {
+		alert('Введите данные перед сохранением');
+	}
+})
+
+// обновление локального хранилища
+
+buttonUpdate.addEventListener('click', updateData);
+
+// создание карточек с котиками при наличии авторизации
+
+if (getCookie('User')) {
+	getCards();
+}
+
+// отправка на сервер изменений котика, обновление хранилища, закрытие формы
+
+editCatForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let body = {};
+	body[document.getElementById('editCat_name').name] = document.getElementById('editCat_name').value;
+	body[document.getElementById('editCat_img_link').name] = document.getElementById('editCat_img_link').value;
+	body[document.getElementById('editCat_rate').name] = document.getElementById('editCat_rate').value;
+	body[document.getElementById('editCat_age').name] = document.getElementById('editCat_age').value;
+	body[document.getElementById('editCat_favourite').name] = document.getElementById('editCat_favourite').value;
+	body[document.getElementById('editCat_description').name] = document.getElementById('editCat_description').value;
+
+	api.updateCat(currentCat.id, body)
+	.then(updateData);
+
+	editCatCard.classList.remove("active");
+})
+
+// отмена изменения котика
+
+cancelEditButton.addEventListener('click', () => editCatCard.classList.remove("active"));
+
+// открытие формы добавления котика
+
+buttonAddNewCat.addEventListener('click', openAddCatCard);
+
+// отправка на сервер нового котика, обновление хранилища, закрытие формы
+
+addCatForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let body = {};
+	body[document.getElementById('addCat_id').name] = document.getElementById('addCat_id').value;
+	body[document.getElementById('addCat_name').name] = document.getElementById('addCat_name').value;
+	body[document.getElementById('addCat_img_link').name] = document.getElementById('addCat_img_link').value;
+	body[document.getElementById('addCat_rate').name] = document.getElementById('addCat_rate').value;
+	body[document.getElementById('addCat_age').name] = document.getElementById('addCat_age').value;
+	body[document.getElementById('addCat_favourite').name] = document.getElementById('addCat_favourite').value;
+	body[document.getElementById('addCat_description').name] = document.getElementById('addCat_description').value;
+
+	api.addCat(body)
+	.then(updateData);
+
+	addCatCard.classList.remove("active");
+})
+
+// отмена добавления котика
+
+cancelAddButton.addEventListener('click', () => addCatCard.classList.remove("active"));

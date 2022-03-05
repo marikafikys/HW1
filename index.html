@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Котики</title>
-	<link rel="icon" href="img/Cat-logo.png">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header class="container">
-		<img class="logo-img" src="img/Cat-logo.png" alt="Logo">
-      <span class="logo-text">Бабуленькины котики</span>
-	</header>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Котики</title>
+		<link rel="icon" href="img/Cat-logo.png">
+		<link rel="stylesheet" href="style.css">
+		<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js%22%3E%3C/script%3E"></script> -->
+	</head>
+	<body>
+		<header class="container">
+			<img class="logo-img" src="img/Cat-logo.png" alt="Logo">
+			<span class="logo-text">Бабуленькины котики</span>
+			<form name="authorization" class="container authorization">
+				<input type="text" name="authorization" class="authorization__input" placeholder="Введите ваше имя">
+				<button type="submit" class="button__main">Авторизация</button>
+			</form>
+		</header>
+		<main>
+			<div class="container buttons">
+				<button type="button" class="button__main button__update">Обновить информацию о котиках</button>
+				<button type="button" class="button__main button__add">Добавить котика</button>
+			</div>
 
-	<section class="container">
-	
-	</section>
+			
+			<div class="addCatCard">
+				<form name="addCat" class="addCat">
+					<input type="text" name="id" id="addCat_id" placeholder="Введите id">
+					<input type="text" name="name" id="addCat_name" placeholder="Введите имя">
+					<input type="text" name="img_link" id="addCat_img_link" placeholder="Добавьте ссылку на фото">
+					<input type="text" name="rate" id="addCat_rate" placeholder="Введите рейтинг (от 0 до 10)">
+					<input type="text" name="age" id="addCat_age" placeholder="Введите возраст">
+					<input type="text" name="favourite" id="addCat_favourite" placeholder="В избранное (true/false)">
+					<input type="text" name="description" id="addCat_description" placeholder="Введите описание">
+					<button type="submit" class="button__main">Сохранить</button>
+					<button type="button" class="cancel button__main">Отмена</button>
+				</form>
+			</div>
 
-	<footer class="container">
-		©2022 All rights reserved
-	</footer>
+			<div class="editCatCard">
+				<form name="editCat" class="editCat">
+					<input type="text" name="name" id="editCat_name" placeholder="Введите имя">
+					<input type="text" name="img_link" id="editCat_img_link" placeholder="Добавьте ссылку на фото">
+					<input type="text" name="rate" id="editCat_rate" placeholder="Введите рейтинг (от 0 до 10)">
+					<input type="text" name="age" id="editCat_age" placeholder="Введите возраст">
+					<input type="text" name="favourite" id="editCat_favourite" placeholder="В избранное (true/false)">
+					<input type="text" name="description" id="editCat_description" placeholder="Введите описание">
+					<button type="submit" class="button__main">Сохранить</button>
+					<button type="button" class="cancel button__main">Отмена</button>
+				</form>
+			</div>
 
-	<script src="script.js"></script>
-</body>
+			<section class="container">
+				
+			</section>
+		</main>
+		<footer class="container">
+			©2022 All rights reserved
+		</footer>
+		<script src="api.js" defer></script>
+		<script src="script.js" defer></script>
+	</body>
 </html>

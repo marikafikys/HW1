@@ -1,5 +1,5 @@
 body {
-	font-family: sans-serif;
+	font-family: "Comfortaa";
 	font-size: 30px;
 	margin: 0;
 }
@@ -9,6 +9,7 @@ header {
 	justify-content: space-between;
    align-items: center;
    box-shadow: 0 0 5px 0 #0008;
+	font-weight: 600;
 }
 
 .logo-img {
@@ -21,10 +22,43 @@ header {
 	padding: 15px;
 }
 
+.addCatCard, .editCatCard {
+	border-top: 2px solid rgb(247, 118, 44);
+	border-bottom: 2px solid rgb(247, 118, 44);
+}
+
+input {
+	border: 1px solid rgb(247, 118, 44);
+	border-radius: 15px;
+	width: 300px;
+	margin: 10px;
+	padding: 10px;
+	font-family: "Comfortaa";
+}
+
 .container {
-	/* display: flex; */
 	padding-left: calc((100% - 980px)/2);
 	padding-right: calc((100% - 980px)/2);
+}
+
+.buttons {
+	background-color: rgb(247, 118, 44, 0.3);
+	border-bottom: 1px solid white;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.button__main {
+	box-sizing: border-box;
+	border: none;
+	box-shadow: 0 0 5px 0 #0008;
+	border-radius: 15px;
+	margin: 20px 20px 20px 20px;
+	padding: 15px;
+	background-color: rgb(247, 118, 44);
+	cursor: pointer;
+	font-family: "Comfortaa";
+	color: #fff;
 }
 
 section {
@@ -32,8 +66,8 @@ section {
 	grid-template-columns: 300px 300px 300px;
 	justify-content: center;
 	grid-gap: 40px;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	background-color: rgb(247, 118, 44, 0.3);
 }
 
@@ -108,6 +142,22 @@ section {
 	display: flex;
 }
 
+.addCatCard {
+	display: none;
+}
+
+.addCatCard.active {
+	display: flex;
+}
+
+.editCatCard {
+	display: none;
+}
+
+.editCatCard.active {
+	display: flex;
+}
+
 .info-wrapper {
 	display: grid;
 	grid-template-columns: repeat(2, 300px);
@@ -131,6 +181,7 @@ section {
 	background-repeat: no-repeat;
 	width: 50px;
 	height: 50px;
+	border: none;
 }
 
 .infoCard-img {
@@ -161,4 +212,11 @@ footer {
    box-shadow: 0 0 5px 0 #0008;
 	font-size: 20px;
 	padding: 30px;
+}
+
+@font-face {
+	font-family: "Comfortaa";  
+	src: url("fonts/font.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
 }
